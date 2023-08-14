@@ -4,12 +4,16 @@ import PageContent from "../components/PageContent"
 const ErrorPage = props => {
 
     const error = useRouteError()
-
+    console.log("llll=============", error)
     let title = "An Error Occurred"
     let message = "Something went wrong!"
 
-    if (error.status === 500) {
+    if (error.request.status === 500) {
+        //  without using json utility function provided by react-router
         message = JSON.parse(error.data).message
+
+        // using json utility function
+        // message = error.data.message
     }
 
     if (error.status === 404) {
