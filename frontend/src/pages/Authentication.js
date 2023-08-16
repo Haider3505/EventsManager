@@ -33,8 +33,6 @@ export const action = async ({ request }) => {
     return response
   }
 
-  console.log('response:::::', response)
-
   if (!response.ok) {
     throw json({ message: "Could not authenticate user." }, { status: 500 })
   }
